@@ -226,7 +226,11 @@ function write(f) {
 
 function produceJsdoc(dir, title) {
   return jsdoc2md
-    .render({ files: config.rootFolder + "/" + dir + "/**/*.js" })
+    .render({
+      partial: __dirname + "/custom/main.hbs",
+      helper: __dirname + "/custom/serverless-functions.js",
+      files: config.rootFolder + "/" + dir + "/**/*.js"
+    })
     .then(markdown => ({
       dir,
       title,
