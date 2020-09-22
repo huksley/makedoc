@@ -227,15 +227,19 @@ function write(f) {
 function produceJsdoc(dir, title) {
   return jsdoc2md
     .render({
-      partial: __dirname + "/custom/main.hbs",
-      helper: __dirname + "/custom/serverless-functions.js",
-      files: config.rootFolder + "/" + dir + "/**/*.js"
+      partial: __dirname + "/custom/**/*.hbs",
+      helper: __dirname + "/custom/functions.js",
+      files: config.rootFolder + "/" + dir + "/**/*.js",
+      configure:  __dirname + "/custom/config.json",
     })
     .then(markdown => ({
       dir,
       title,
       markdown
-    }));
+    }))
+    .catch(e => {
+      console.warn("Failed to process " + dir, e)
+    })
 }
 
 // FIXME: Ridiculous
@@ -244,7 +248,7 @@ xhtmlsafe = markdown => markdown.split("<hr>").join("<hr/>");
 function parseMarkdown() {
   Promise.all(config.jsdoc.map(p => produceJsdoc(p.dir, p.title))).then(jsdoc => {
     const foundJsdoc = {};
-    jsdoc.forEach(file => {
+    jsdoc.filter(file => file != undefined).forEach(file => {
       foundJsdoc[file.dir] = file;
       console.info("Created jsdoc for " + file.dir);
     });
