@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/huksley/markdoc.git"
+    "url": "git+https://github.com/huksley/makedoc.git"
   },
   "author": "@huksley",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/huksley/markdoc/issues"
+    "url": "https://github.com/huksley/makedoc/issues"
   },
-  "homepage": "https://github.com/huksley/markdoc#readme",
+  "homepage": "https://github.com/huksley/makedoc#readme",
   "dependencies": {
     "commander": "^4.1.1",
     "jsdoc-to-markdown": "^5.0.3",
