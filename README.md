@@ -33,7 +33,16 @@ base_url = "https://workspace.atlassian.net/wiki"
 }
 ```
 
+# Running
 
-# Go into the project folder
-node ../makedoc/index 
+```sh
+npm install @huksley/markdoc
+node ./node_modules/@huksley/markdoc/index
+./upload.sh
 ```
+
+# Demo confluence page
+
+https://yeive6ae.atlassian.net/wiki/spaces/DOCS/pages/818413569/Makedoc
+
+

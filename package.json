@@ -1,10 +1,11 @@
 {
   "name": "@huksley/markdoc",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Creates Confluence markdown documentation from jsdoc and markdown files",
   "main": "index.js",
+  "private": false,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -25,5 +26,8 @@
   "devDependencies": {
     "nodemon": "^2.0.2",
     "prettier": "^1.19.1"
+  },
+  "makedoc": {
+    "title": "Docs Home"
   }
 }
